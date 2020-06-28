@@ -57,7 +57,11 @@
     <version>13.0.0</version>
 </dependency>
   
-  
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13</version>
+</dependency>
   
   
   
@@ -91,11 +95,7 @@
     <scope>provided</scope>
 </dependency>
   
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.13</version>
-</dependency>
+
 
 
 <dependency>
