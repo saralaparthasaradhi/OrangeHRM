@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 	
 	@RunWith(Cucumber.class)
 	@CucumberOptions(
-			features = "src/test/resources/features/Job_Title.feature",
+			features = "src/test/resources/features",
 			glue = {"com/OrangeHRM/stepDefinitions"},
 			plugin = {"pretty","html:test-output","json:json_output/cucumber.json","junit:junit_xml/cucumber.xml"},
 			monochrome = true,
@@ -23,3 +23,4 @@ import io.cucumber.junit.CucumberOptions;
 	
 	
 }
+ 

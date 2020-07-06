@@ -39,27 +39,29 @@ public class JobTitlePage extends TestBase {
 	public void clickAdd_btn() {
 
 		driver.findElement(add_btn).click();
+		System.out.println("Add button clicked for adding new Job Title");
 	}
 
-	public void enter_Data_In_All_Fields() {
-		driver.findElement(jobTitle_textField).sendKeys("Quality Analyst");
-		driver.findElement(JobDescription_textField).sendKeys("Ensure the quality standards");
-		driver.findElement(jobSpecification_textField).sendKeys("C:\\Sarala-testing\\ReadFile.txt");
-		driver.findElement(note_textField).sendKeys("Note");
-
-	}
-
-	public void existing_JobTitle_Data_entry() {
-		driver.findElement(jobTitle_textField).sendKeys("Quality Analyst");
+	public void enter_Data_In_All_Fields(String AllFieldJobTitle,String JobDescription,String JobSpec, String Note) {
+		driver.findElement(jobTitle_textField).sendKeys(AllFieldJobTitle);
+		driver.findElement(JobDescription_textField).sendKeys(JobDescription);
+		driver.findElement(jobSpecification_textField).sendKeys(JobSpec);
+		driver.findElement(note_textField).sendKeys(Note);
 
 	}
 
-	public void clickSave_btn() {
+	public void existing_JobTitle_Data_entry(String existingJobTitle) {
+		driver.findElement(jobTitle_textField).sendKeys(existingJobTitle);
+
+	}
+
+	public void clickSaveJT_btn() {
 		driver.findElement(save_btn).click();
+		System.out.println("Save button clicked");
 	}
 
-	public void enter_Data_in_Mandatory_field() {
-		driver.findElement(jobTitle_textField).sendKeys("QA");
+	public void enter_Data_in_Mandatory_field(String mandatory_JobTitle) {
+		driver.findElement(jobTitle_textField).sendKeys(mandatory_JobTitle);
 
 	}
 
@@ -73,25 +75,29 @@ public class JobTitlePage extends TestBase {
 
 	public void clickDelete_btn() {
 		driver.findElement(delete_btn).click();
+		System.out.println("Delete btn Clicked");
 	}
 
-	public void singleDelete() {
-		driver.findElement(By.xpath("//a[contains(text(),'QA')]//parent::td//preceding-sibling::td//input")).click();
-
+	public void singleDelete(String deleteJobTitle) {//QA
+		driver.findElement(By.xpath("//a[contains(text(),'"+deleteJobTitle+"')]//parent::td//preceding-sibling::td//input")).click();
+		System.out.println(deleteJobTitle+" option is clicked");
 	}
 
-	public void multipleDelete() {
-		driver.findElement(By.xpath("//a[contains(text(),'Quality')]//parent::td//preceding-sibling::td//input")).click();
-		driver.findElement(By.xpath("//a[contains(text(),'CEO')]//parent::td//preceding-sibling::td//input")).click();
+	public void multipleDelete(String delete1JobTitle, String delete2JobTitle) {//Quality,CEO
+		driver.findElement(By.xpath("//a[contains(text(),'"+delete1JobTitle+"')]//parent::td//preceding-sibling::td//input")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'"+delete2JobTitle+"')]//parent::td//preceding-sibling::td//input")).click();
 
 	}
 
 	public void click_OK_Confimation() {
 		driver.findElement(Confirmation_ok_btn).click();
+		System.out.println("OK btn clicked in the Confirmation popup");
 	}
 
 	public void click_Cancel_Confimation() {
 		driver.findElement(Confirmation_cancel_btn).click();
+		System.out.println("Cancel btn clicked in the Confirmation popup");  
+
 	}
 }
 

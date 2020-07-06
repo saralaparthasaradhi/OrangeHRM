@@ -19,7 +19,7 @@ import io.cucumber.java.en.When;
 
 import junit.framework.Assert;
 
-public class Job_Titles_withData_in_All_Fields extends TestBase{
+public class Job_Titles_Steps extends TestBase{
 
 	TestUtil testUtil;
 	DashboardPage dashboardPage;
@@ -30,7 +30,7 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 	
 	
 	
-	@Before
+	@Before("@1st")
 	public void preSteps() {
 
 		TestBase.initialization();
@@ -40,12 +40,12 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 
 		adminPage = dashboardPage.clickAdmin_btn();
 
-		jobtitlePage = adminPage.clickJobTitle_btn();
+		jobtitlePage = adminPage.clickJobTitle_btn("Job Titles");
 
 
 	}
 	
-	@After
+	@After("@1st")
 	public void tearDown() {
 		driver.quit();
 		System.out.println("###########################################################");
@@ -76,12 +76,15 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 	@Then("^Enter data for all fields and click save and verify$")
 	public void Enter_data_for_all_fields_and_click_save_and_verify() throws Throwable {
 		   
-		   jobtitlePage.enter_Data_In_All_Fields();
-		   jobtitlePage.clickSave_btn();
+		   jobtitlePage.enter_Data_In_All_Fields(jobProp.getProperty("AllFieldJobTitle"),
+				   jobProp.getProperty("JobDescription"),
+				   jobProp.getProperty("JobSpec"), 
+				   jobProp.getProperty("Note"));
+		   jobtitlePage.clickSaveJT_btn();
 		   
-		   List<WebElement> listOfJobTitles = driver.findElements(By.xpath("//tr[@class='odd']//td[@class='left']"));
+		   List<WebElement> listOfJobTitles = driver.findElements(By.xpath("//tr//td[@class='left']//a"));
 		   for(WebElement element: listOfJobTitles) {
-			   if(element.getText().equals("Quality Analyst"))
+			   if(element.getText().equals(jobProp.getProperty("AllFieldJobTitle")))
 				   System.out.println("==============New Job Title Added Successfully!=================");
 		   }
 	}
@@ -102,10 +105,10 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 
 	@Then("^Click on Save button$")
 	public void click_on_Save_button() throws Throwable {
-		   jobtitlePage.clickSave_btn();
+		   jobtitlePage.clickSaveJT_btn();
 		   String errorMsg = jobtitlePage.required_errorMessage();
 		   Assert.assertEquals("Required", errorMsg);
-
+		  
 	}
 	
 	
@@ -120,13 +123,15 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 	@Then("^Click on Add button and enter data for Job title$")
 	public void click_on_Add_button_and_enter_data_for_Job_title() throws Throwable {
 		jobtitlePage.clickAdd_btn();
-		jobtitlePage.existing_JobTitle_Data_entry();
+		jobtitlePage.existing_JobTitle_Data_entry(jobProp.getProperty("existingJobTitle"));
 
 	}
 
 	@Then("^Click on Save button and verify error message$")
 	public void click_on_Save_button_and_verify_error_message() throws Throwable {
-		   jobtitlePage.clickSave_btn();
+		   Thread.sleep(3000);
+		   jobtitlePage.clickSaveJT_btn();
+
 		   String errorMsg = jobtitlePage.Already_exists_errorMessage();
 		   Assert.assertEquals("Already exists", errorMsg);
 
@@ -142,16 +147,16 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 	@Then("^Click on Add option  and enter data for only Job Title field$")
 	public void click_on_Add_option_and_enter_data_for_only_Job_Title_field() throws Throwable {
 		jobtitlePage.clickAdd_btn();
-		jobtitlePage.enter_Data_in_Mandatory_field();
+		jobtitlePage.enter_Data_in_Mandatory_field(jobProp.getProperty("mandatoryJobTitle"));
 	}
 
 	@Then("^Click on Save button and verify$")
 	public void click_on_Save_button_and_verify() throws Throwable {
-		   jobtitlePage.clickSave_btn();
+		   jobtitlePage.clickSaveJT_btn();
 		   
 		   List<WebElement> listOfJobTitles = driver.findElements(By.xpath("//tr//td[@class='left']"));
 		   for(WebElement element: listOfJobTitles) {
-			   if(element.getText().equals("QA"))
+			   if(element.getText().equals(jobProp.getProperty("mandatoryJobTitle")))
 				   System.out.println("==============New Job Title Added Successfully!=================");
 		   }
 
@@ -167,7 +172,7 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 
 	@Then("^Click on checkbox corresponding to Job Title to be deleted$")
 	public void click_on_checkbox_corresponding_to_Job_Title_to_be_deleted() throws Throwable {
-	    jobtitlePage.singleDelete();
+	    jobtitlePage.singleDelete(jobProp.getProperty("deleteJobTitle"));
 	    
 	}
 
@@ -186,7 +191,7 @@ public class Job_Titles_withData_in_All_Fields extends TestBase{
 
 	@Then("^Click on checkboxes corresponding to Job Titles to be deleted$")
 	public void click_on_checkboxes_corresponding_to_Job_Titles_to_be_deleted() throws Throwable {
-	    jobtitlePage.multipleDelete();
+	    jobtitlePage.multipleDelete(jobProp.getProperty("delete1st_JobTitle"), jobProp.getProperty("delete2nd_JobTitle"));
 	}
 
 	@Then("^Click on Delete button and Click on OK button in Confirmation popup$")

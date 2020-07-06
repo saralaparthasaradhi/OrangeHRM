@@ -18,16 +18,22 @@ public class TestBase {
 
 	public static WebDriver driver;
 	public static Properties prop;
+	public static Properties jobProp;
 	
 	
 	public TestBase() {
 		
 		prop = new Properties();
+		jobProp = new Properties();
 		
 		try {
 			FileInputStream file = new FileInputStream("C:\\Sarala-testing\\OrangeHRM_BDD\\src\\main\\java\\"
 					+ "com\\OrangeHRM\\config\\config.properties");
 			prop.load(file);
+			
+			FileInputStream jobTitlefile = new FileInputStream("C:\\Sarala-testing\\OrangeHRM_BDD\\src\\main\\java\\"
+					+ "com\\OrangeHRM\\config\\Job_Tab.properties");
+			jobProp.load(jobTitlefile);
 		} 
 		 catch (IOException e) {
 			e.getMessage();

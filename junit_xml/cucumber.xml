@@ -1,37 +1,129 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="17.755">
-<testcase classname="OrangeHRM Job title feature" name="Verify Delete functionality for required multiple Job Titles" time="16.686">
-<failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[contains(text(),'Quality')]//parent::td//preceding-sibling::td//input&quot;}&#10;  (Session info: chrome=83.0.4103.116)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-1VCP591', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_161'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.116, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\gunas\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50440}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}&#10;Session ID: f921763302d94f43ab5c21d1fa43c74b&#10;*** Element info: {Using=xpath, value=//a[contains(text(),'Quality')]//parent::td//preceding-sibling::td//input}" type="org.openqa.selenium.NoSuchElementException"><![CDATA[Given User is on Job Title Page for delete multiple Job Title test..........passed
-Then Click on checkboxes corresponding to Job Titles to be deleted..........failed
-Then Click on Delete button and Click on OK button in Confirmation popup....skipped
-
-StackTrace:
-org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[contains(text(),'Quality')]//parent::td//preceding-sibling::td//input"}
-  (Session info: chrome=83.0.4103.116)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-1VCP591', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_161'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.116, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\gunas\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50440}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: f921763302d94f43ab5c21d1fa43c74b
-*** Element info: {Using=xpath, value=//a[contains(text(),'Quality')]//parent::td//preceding-sibling::td//input}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at com.OrangeHRM.pages.JobTitlePage.multipleDelete(JobTitlePage.java:84)
-	at com.OrangeHRM.stepDefinitions.Job_Titles_withData_in_All_Fields.click_on_checkboxes_corresponding_to_Job_Titles_to_be_deleted(Job_Titles_withData_in_All_Fields.java:189)
-	at ✽.Click on checkboxes corresponding to Job Titles to be deleted(file:///C:/Sarala-testing/OrangeHRM_BDD/src/test/resources/features/Job_Title.feature:38)
-]]></failure>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="21" time="276.401">
+<testcase classname="OrangeHRM Employment Status feature" name="Verify Add functionality for Employment Status for Name textbox" time="14.248">
+<system-out><![CDATA[Given User is on Employment Status page.....................................passed
+When Click on Add button for adding new data................................passed
+Then Enter data for Name text field and click save and verify...............passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Employment Status feature" name="Verify Add functionality for Employment Status with empty Name field" time="12.64">
+<system-out><![CDATA[Given User is on Employment Status page for empty field test................passed
+When Click on Add button without entering any data for Employment Status....passed
+Then Click Save and verify the error message displayed as Required..........passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Employment Status feature" name="Verify Add functionality for Employment Status with pre existing data" time="10.876">
+<system-out><![CDATA[Given User is on Employment Status page for pre existing data test..........passed
+When Click on Add button and enter pre existing data........................passed
+Then Click Save and verify the error message displayed as Already Exists....passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Employment Status feature" name="Verify Delete functionality for Employment Status single entry" time="12.994">
+<system-out><![CDATA[Given User is on Employment Status page for deleting single entry...........passed
+When Click on checkbox corresponding to Employment Status to be delete......passed
+Then Click on Delete and Click on OK in Confirmation popup and verify Employment Status is deleted.passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Employment Status feature" name="Verify Delete functionality for Employment Status for multiple entry" time="10.958">
+<system-out><![CDATA[Given User is on Employment Status page for deleting multiple entries.......passed
+When Click on checkboxes corresponding to Employment Status to be delete....passed
+Then Click on Delete and Click on OK in Confirmation popup and verify seleted options are deleted.passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job Categories feature" name="Verify Add functionality for Job Categories for Name textbox" time="12.689">
+<system-out><![CDATA[Given User is on Job Categories page........................................passed
+When Click on Add button for adding Job Category............................passed
+Then Enter data for Name textbox and click save and verify..................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job Categories feature" name="Verify Add functionality for Job Categories with empty Name field" time="10.621">
+<system-out><![CDATA[Given User is on Job Categories page for empty field test...................passed
+When Click on Add button without entering any data for Job Categories.......passed
+Then Click Save and check the error message displayed as Required...........passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job Categories feature" name="Verify Add functionality for Job Categories with pre existing data" time="12.586">
+<system-out><![CDATA[Given User is on Job Categories page for pre existing data test.............passed
+When Click on Add button and enter already existing Job Category............passed
+Then Click Save and check the error message displayed as Already Exists.....passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job Categories feature" name="Verify Delete functionality for Job Categories single entry" time="11.188">
+<system-out><![CDATA[Given User is on Job Categories page for deleting single entry..............passed
+When Click on checkbox corresponding to Job Categories to be delete.........passed
+Then Click Delete and Click OK in Confirmation popup and verify Job Category is deleted.passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job Categories feature" name="Verify Delete functionality for Job Categories for multiple entry" time="14.352">
+<system-out><![CDATA[Given User is on Job Categories page for deleting multiple entries..........passed
+When Click on checkboxes corresponding to Job Categories to be delete.......passed
+Then Click Delete and Click OK in Confirmation popup and verify seleted Job Categories are deleted.passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job titles feature" name="Verify Add functionality for Job Titles with all fields" time="15.797">
+<system-out><![CDATA[Given User is on Job Title Page for all fields test.........................passed
+When Click on Add button for all fields test................................passed
+Then Enter data for all fields and click save and verify....................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job titles feature" name="Verify Add functionality for Job Titles with empty Mandatory field" time="11.995">
+<system-out><![CDATA[Given User is on Job Title Page for empty Mandatory field test..............passed
+Then Click on Add button....................................................passed
+Then Click on Save button...................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job titles feature" name="Verify Add functionality for Job Titles with existing Job Title data in Job Title text field" time="14.822">
+<system-out><![CDATA[Given User is on Job Title Page for existing Job Title data test............passed
+Then Click on Add button and enter data for Job title.......................passed
+Then Click on Save button and verify error message..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job titles feature" name="Verify Add functionality for Job Titles with Mandatory fields" time="17.079">
+<system-out><![CDATA[Given User is on Job Title Page for Mandatory fields test...................passed
+Then Click on Add option  and enter data for only Job Title field...........passed
+Then Click on Save button and verify........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job titles feature" name="Verify Delete functionality for required Job Title" time="13.908">
+<system-out><![CDATA[Given User is on Job Title Page for delete Job Title test...................passed
+Then Click on checkbox corresponding to Job Title to be deleted.............passed
+Then Click on Delete and Click on OK button in Confirmation popup...........passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Job titles feature" name="Verify Delete functionality for required multiple Job Titles" time="12.146">
+<system-out><![CDATA[Given User is on Job Title Page for delete multiple Job Title test..........passed
+Then Click on checkboxes corresponding to Job Titles to be deleted..........passed
+Then Click on Delete button and Click on OK button in Confirmation popup....passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Pay Grades feature" name="Verify Add functionality for required Pay Grades" time="15.188">
+<system-out><![CDATA[Given User is on Pay Grades Page for Add functionality test.................passed
+When Click on Add button to add Pay Grade...................................passed
+Then Enter data for Name field and click save and verify....................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Pay Grades feature" name="Verify Add functionality for Pay Grades with existing Pay Grade data in Name text field" time="11.955">
+<system-out><![CDATA[Given User is on Pay Grades Page for existing Pay Grades data test..........passed
+When Click on Add button and enter existing data for Pay Grades.............passed
+Then Click on Save button and verify the error message......................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Pay Grades feature" name="Verify Add functionality for Pay Grades with empty Name field" time="10.738">
+<system-out><![CDATA[Given User is on Pay Grades Page for empty Mandatory field test.............passed
+When Click on Add button with no data.......................................passed
+Then Click on Save button to save...........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Pay Grades feature" name="Verify Delete functionality for required Pay Grade" time="12.01">
+<system-out><![CDATA[Given User is on Pay Grades Page for delete Pay Grades test.................passed
+When Click on checkbox corresponding to Pay Grade to be deleted.............passed
+Then Click Delete and Click on OK button in Confirmation popup..............passed
+]]></system-out>
+</testcase>
+<testcase classname="OrangeHRM Pay Grades feature" name="Verify Delete functionality for selecting all Pay Grades option" time="16.664">
+<system-out><![CDATA[Given User is on Pay Grades Page for deleting all Pay Grades test...........passed
+When Click on checkbox corresponding to header Pay Grade to delete all......passed
+Then Click Delete button and Click on OK button in Confirmation popup.......passed
+]]></system-out>
 </testcase>
 </testsuite>
